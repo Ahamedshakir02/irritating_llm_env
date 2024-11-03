@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annoying LLM Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Annoying LLM Chatbot!</h1>
+        <form method="POST">
+            <label for="question">Ask a question:</label>
+            <input type="text" id="question" name="question" required>
+            <button type="submit">Ask</button>
+        </form>
+
+        {% if annoying_answer %}
+        <div class="response">
+            <h2>Bot (Irritating):</h2>
+            <p>{{ annoying_answer }}</p>
+        </div>
+        {% endif %}
+
+        {% if openai_answer %}
+        <div class="response">
+            <h2>Bot (OpenAI):</h2>
+            <p>{{ openai_answer }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
